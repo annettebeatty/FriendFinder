@@ -10,6 +10,13 @@
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+  <style>
+    .center {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+  </style>
 
 </head>
 <body>
@@ -219,12 +226,12 @@
 
   <!-- Trigger the modal with a button -->
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Display friend
-  </button>
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> -->
+    <!-- Display friend -->
+  <!-- </button> -->
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="friendName"></h5>
@@ -233,7 +240,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <div id="friend-img"></div>
+            <div id="friend-img"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -347,8 +354,11 @@ $.ajax({ url: currentURL + "/api/survey", method: "GET" })
     $("#friendName").text("Your New Best Friend is " + myNewBestFriend.name);
     var friendImage = $("<img>");
     friendImage.attr("src", myNewBestFriend.photo);
+    friendImage.addClass("image-responsive");
+    friendImage.attr("width", "400px");
+    friendImage.addClass("center");
     $("#friend-img").html(friendImage)
-  //  $("#mymodal").attr("visible")
+    $('#myModal').modal('show')
   });
 }
 
