@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friends Survey Page</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- Reservation Page -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">Survey Questions</h2>
+            <hr>
+          </div>
+
+          <div class="panel-body">
+            <form role="form">
+              <h3><strong>About You</strong></h3>
+              <div class="form-group">
+                <label for="your-name">Name (Required)</label>
+                <input type="text" class="form-control" id="your-name">
+              </div>
+
+              <div class="form-group">
+                <label for="your-pic">Link to Photo Image (Required)</label>
+                <input type="text" class="form-control" id="your-pic">
+              </div>
+              <hr>
+
+          <div>
+            <h3><strong>Question 1</strong></h3>
+            <p style="font-size:20px;">I enjoy engaging in outdoor activities</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question1">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+
+          <div>
+            <h3><strong>Question 2</strong></h3>
+            <p style="font-size:20px;">I read a lot for pleasure</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question2">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+
+          <div>
+            <h3><strong>Question 3</strong></h3>
+            <p style="font-size:20px;">I prefer going out to eat versus cooking at home</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question3">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+
+          <div>
+            <h3><strong>Question 4</strong></h3>
+            <p style="font-size:20px;">I enjoy watching sports</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question4">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+  
+          <div>
+            <h3><strong>Question 5</strong></h3>
+            <p style="font-size:20px;">I enjoy travelling to other countries</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question5">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+  
+          <div>
+            <h3><strong>Question 6</strong></h3>
+            <p style="font-size:20px;">I watch a lot of movies</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question6">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+
+          <div>
+            <h3><strong>Question 7</strong></h3>
+            <p style="font-size:20px;">I exercise every day</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question7">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+
+          <div>
+            <h3><strong>Question 8</strong></h3>
+            <p style="font-size:20px;">I enjoy being in a small intimate group versus a party</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question8">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+  
+          <div>
+            <h3><strong>Question 9</strong></h3>
+            <p style="font-size:20px;">I enjoy travelling to other countries</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question9">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+  
+          <div>
+            <h3><strong>Question 10</strong></h3>
+            <p style="font-size:20px;">I enjoy trying new experiences</p> 
+            <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control" id="question10">
+                <option value = "" selected disabled>Select an option</option>
+                <option value = 1>1 (Strongly Disagree)</option>
+                <option value = 2>2</option>
+                <option value = 3>3</option>
+                <option value = 4>4</option>
+                <option value = 5>5 (Strongly Agree)</option>
+              </select>
+            </div>  
+            </div>        
+          </div>
+
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+            </form>
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+
+</body>
+</html>
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+
+
+// Initialize Firebase
+var config = {
+apiKey: "AIzaSyCtNZ1tzsBW95cT1Q2ExEls6Q5anE2890s",
+authDomain: "friend-finder-7ce2f.firebaseapp.com",
+databaseURL: "https://friend-finder-7ce2f.firebaseio.com",
+projectId: "friend-finder-7ce2f",
+storageBucket: "",
+messagingSenderId: "860154501633"
+};
+
+
+    
+// Assign the reference to the database to a variable named 'database'
+// var database = ...
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+    console.log("child_added ", childSnapshot.val());
+    friendsData.push(childSnapshot.val());
+});
+
+
+    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+    $(".submit").on("click", function(event) {
+      event.preventDefault();
+
+      let source = [];
+
+      source.push(parseInt($("#question1").val().trim()));
+      source.push(parseInt($("#question2").val().trim()));
+      source.push(parseInt($("#question3").val().trim()));
+      source.push(parseInt($("#question4").val().trim()));
+      source.push(parseInt($("#question5").val().trim()));
+      source.push(parseInt($("#question6").val().trim()));
+      source.push(parseInt($("#question7").val().trim()));
+      source.push(parseInt($("#question8").val().trim()));
+      source.push(parseInt($("#question9").val().trim()));
+      source.push(parseInt($("#question10").val().trim()));
+
+      // Here we grab the form elements
+      var myData = {
+        name: $("#your-name").val().trim(),
+        photo: $("#your-photo"),
+        source: source
+      };
+
+      console.log(myData);
+/*
+      // Find me a new best friend
+      findMeAfriend(myData);
+
+      // After finding a friend, add our data to the friends DB
+      addMe(myData)
+*/
+    });
+  
+
+
+function findMeAfriend(myData) 
+{
+// Here we get the location of the root page.
+// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+var currentURL = window.location.origin;
+
+// The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+$.ajax({ url: currentURL + "/api/survey", method: "GET" })
+  .then(function(friendData) {
+
+  // Here we are logging the URL so we have access to it for troubleshooting
+    console.log("------------------------------------");
+    console.log("URL: " + currentURL + "/api/survey");
+    console.log("------------------------------------");
+
+    // Here we then log the friendData to console, where it will show up as an object.
+    console.log(friendData);
+    console.log("------------------------------------");
+
+    var myNewBestFriend = "";
+    let myBestie = 0;
+
+    // Loop through each friend and calculate compatibility
+    for (var i = 0; i < friendData.length; i++) 
+    {
+      
+      let diff = 0;
+
+      for (var j=0; j < myData.score.length; j++)
+      {      
+        diff += Math.abs(myData.score[j] - friendData[i].score[j]);
+      }
+
+      if (i == 0 || diff < myBestie)
+      {
+        myBestie = diff;
+        myNewBestFriend = friendData[i];
+      }
+      
+    }  // End outer for loop
+
+    // Found my new best friend.  Show who they are
+    //
+
+  });
+}
+
+// Add me to the friend database
+function addMe(newFriend)
+{
+
+  // Uploads employee data to the database
+  database.ref().push(newFriend);
+
+  $.post("/api/survey", newFriend,
+    function(data) {
+
+      // Tell user they have been entered into the database
+      if (data) {
+        alert("Your data has been entered into the Friend's database!");
+      }
+
+      // Clear the form when submitting
+      $("#reserve-name").val("");
+      $("#reserve-phone").val("");
+      $("#reserve-email").val("");
+      $("#reserve-unique-id").val("");
+
+    });
+}
+
+</script>
+
