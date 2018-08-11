@@ -276,8 +276,8 @@
 
     // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js filed
+    // Our api recognizes the route (/api/survey)... and then runs the associated code (found in apiRoutes.js).
+    // In this case the associated code "saves" the data to the friends.js file
 
     $(".submit").on("click", function(event) {
       event.preventDefault();
@@ -289,6 +289,7 @@
       let photo = $("#your-pic").val().trim();
       let source = [];
 
+      // Convert the question answers to numbers so we can do math on them
       source.push(parseInt($("#question1").val().trim()));
       source.push(parseInt($("#question2").val().trim()));
       source.push(parseInt($("#question3").val().trim()));
@@ -300,7 +301,7 @@
       source.push(parseInt($("#question9").val().trim()));
       source.push(parseInt($("#question10").val().trim()));
 
-      // Here we grab the form elements
+      // Create an object we can push around
       var myData = {
         name: name,
         photo: photo,
@@ -313,10 +314,11 @@
       return(findMeAfriend(myData));
     });
   
+// This function validates the form data an ensures all the fields are filled out
+// If they aren't, we'll send an error to the user
 function validateForm() 
 {
 
-   // var x = document.forms["myForm"]["your-name"].value;
     var x = $("#your-name").val();
     var y = $("#your-pic").val();
 
@@ -341,6 +343,8 @@ function validateForm()
     return true;
 }
 
+// This is the heart of the application.  It will compare the entered data to the data in the database and find 
+// the best "fit" and display it to the user
 function findMeAfriend(myData) 
 {
 // Here we get the location of the root page.
@@ -365,7 +369,7 @@ $.ajax({ url: currentURL + "/api/friends", method: "GET" })
     var myNewBestFriend = "";
     let myBestie = 0;
     
-    // Loop through each friend and calculate compatibility
+    // Loop through each possible friend and calculate compatibility (Less is better)
     for (var i = 0; i < friendData.length; i++) 
     {
       
@@ -406,7 +410,7 @@ $.ajax({ url: currentURL + "/api/friends", method: "GET" })
   });
 }
 
-// Add me to the friend database
+// This function will add the data entered to the friend database
 function addMe(newFriend)
 {
   console.log("addMe: adding ", newFriend);
