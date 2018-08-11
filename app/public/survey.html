@@ -16,6 +16,14 @@
       margin-right: auto;
       display: block;
     }
+
+    .col-lg-4 {
+      padding: 0;
+    }
+
+    body{
+      background-color:darkblue;
+    }
   </style>
 
 </head>
@@ -29,14 +37,15 @@
         <!-- Reservation Page -->
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h2 class="panel-title">Survey Questions</h2>
+            <h2 class="panel-title" style="text-align: center; background-color: azure; margin-top: 15px; margin-bottom: 0px;">Survey Questions</h2>
             <hr>
           </div>
 
-          <div class="panel-body">
-            <!-- <form role="form" name="myForm" onsubmit="return validateForm()" action="/action_page.php" method="post"> -->
+          <div class="card">
             <form role="form" id="myForm">
-              <h3><strong>About You</strong></h3>
+              <h3 class="card-header" style="text-align: center">
+                About You</h3>
+              <div class="card-body">
               <div class="form-group">
                 <label for="your-name">Name (Required)</label>
                 <input type="text" class="form-control" id="your-name" placeholder="John Doe" required />
@@ -46,12 +55,18 @@
                 <label for="your-pic">Link to Photo Image (Required)</label>
                 <input type="text" class="form-control" id="your-pic" placeholder="URL" required/>
               </div>
-              <hr>
-  
-          <div>
-            <h3><strong>Question 1</strong></h3>
+              </div>
+          </div>
+          <br>
+          
+          <div class="card">
+          <h3 class="card-header" style="text-align: center">Questions</h3>
+          <div class="row">
+          <div class="col-lg-6">
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 1</strong></h3> -->
             <p style="font-size:20px;">I enjoy engaging in outdoor activities</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question1" required>
                 <option value = "" selected disabled>Select an option</option>
@@ -65,10 +80,10 @@
             </div>        
           </div>
 
-          <div>
-            <h3><strong>Question 2</strong></h3>
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 2</strong></h3> -->
             <p style="font-size:20px;">I read a lot for pleasure</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question2">
                 <option value = "" selected disabled>Select an option</option>
@@ -82,10 +97,10 @@
             </div>        
           </div>
 
-          <div>
-            <h3><strong>Question 3</strong></h3>
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 3</strong></h3> -->
             <p style="font-size:20px;">I prefer going out to eat versus cooking at home</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question3">
                 <option value = "" selected disabled>Select an option</option>
@@ -99,10 +114,10 @@
             </div>        
           </div>
 
-          <div>
-            <h3><strong>Question 4</strong></h3>
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 4</strong></h3> -->
             <p style="font-size:20px;">I enjoy watching sports</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question4">
                 <option value = "" selected disabled>Select an option</option>
@@ -116,10 +131,10 @@
             </div>        
           </div>
   
-          <div>
-            <h3><strong>Question 5</strong></h3>
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 5</strong></h3> -->
             <p style="font-size:20px;">I enjoy travelling to other countries</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question5">
                 <option value = "" selected disabled>Select an option</option>
@@ -132,11 +147,13 @@
             </div>  
             </div>        
           </div>
-  
-          <div>
-            <h3><strong>Question 6</strong></h3>
+          </div> <!-- End col 6-->
+
+          <div class="col-lg-6">
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 6</strong></h3> -->
             <p style="font-size:20px;">I watch a lot of movies</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question6">
                 <option value = "" selected disabled>Select an option</option>
@@ -150,10 +167,10 @@
             </div>        
           </div>
 
-          <div>
-            <h3><strong>Question 7</strong></h3>
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 7</strong></h3> -->
             <p style="font-size:20px;">I exercise every day</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question7">
                 <option value = "" selected disabled>Select an option</option>
@@ -167,10 +184,10 @@
             </div>        
           </div>
 
-          <div>
-            <h3><strong>Question 8</strong></h3>
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 8</strong></h3> -->
             <p style="font-size:20px;">I enjoy being in a small intimate group versus a party</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question8">
                 <option value = "" selected disabled>Select an option</option>
@@ -184,10 +201,10 @@
             </div>        
           </div>
   
-          <div>
-            <h3><strong>Question 9</strong></h3>
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 9</strong></h3> -->
             <p style="font-size:20px;">I enjoy travelling to other countries</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question9">
                 <option value = "" selected disabled>Select an option</option>
@@ -201,10 +218,10 @@
             </div>        
           </div>
   
-          <div>
-            <h3><strong>Question 10</strong></h3>
+          <div style="margin: 20px">
+            <!-- <h3><strong>Question 10</strong></h3> -->
             <p style="font-size:20px;">I enjoy trying new experiences</p> 
-            <div class="col-lg-3">
+            <div class="col-lg-4">
             <div class="form-group">
               <select class="form-control" id="question10">
                 <option value = "" selected disabled>Select an option</option>
@@ -217,19 +234,18 @@
             </div>  
             </div>        
           </div>
+          </div> <!-- end col 6-->
 
-              <button type="submit" class="btn btn-primary submit">Submit</button>
+          </div>  <!-- end of row-->
+              <button type="submit" class="btn btn-primary btn-block submit">Submit</button>
           </form>
-          </div>
+          </div> <!-- end of card -->
       </div>
   </div>
   </div>
 
-  <!-- Trigger the modal with a button -->
-  <!-- Button trigger modal -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> -->
-    <!-- Display friend -->
-  <!-- </button> -->
+
+  <!-- Display friend -->
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -250,8 +266,6 @@
     </div>
   </div>
 
-  <!-- Trigger the modal with a button -->
-
   </div> <!-- End container -->
 
 </body>
@@ -259,8 +273,6 @@
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
-
-
 
     // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
@@ -298,9 +310,7 @@
       console.log("Before FindMeAFriend ", myData);
 
       // Find me a new best friend
-      findMeAfriend(myData);
-
-
+      return(findMeAfriend(myData));
     });
   
 function validateForm() 
@@ -391,11 +401,8 @@ $.ajax({ url: currentURL + "/api/friends", method: "GET" })
     $('#myModal').modal('show')
 
     // After finding a friend, add our data to the friends DB
-    addMe(myData);
+    return(addMe(myData));
 
-    // Reset the form
-    var form = document.getElementById("myForm");
-    form.reset();
   });
 }
 
@@ -406,16 +413,12 @@ function addMe(newFriend)
   $.post("/api/friends", newFriend,
     function(data) {
 
-      // Tell user they have been entered into the database
-      if (data) {
-        alert("Your data has been entered into the Friend's database!");
-      }
+      console.log("Added: ", data);
 
-      // Clear the form when submitting
-      $("#reserve-name").val("");
-      $("#reserve-phone").val("");
-      $("#reserve-email").val("");
-      $("#reserve-unique-id").val("");
+      // Reset the form
+      var form = document.getElementById("myForm");
+      form.reset();
+      return(false);
 
     });
 }
