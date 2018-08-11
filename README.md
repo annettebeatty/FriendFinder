@@ -24,4 +24,4 @@ Once the survey is submitted, the application will match the users answers again
 <img width="1028" alt="friend" src="./app/public/newbestie.png">
 
 If the user has an interest in seeing the contents of the database, they can click on the "API Friends Link" on the home page or go to the /app/survey/ link directly.  This will display the JSON for all of the records in the database.
-<img width="1028" alt="friend" src="./app/public/apishot.png">
+<img width="1028" alt="friend" src="./app/public/api_shot.png">
