@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+
   <style>
     .center {
       margin-left: auto;
@@ -34,19 +34,20 @@
           </div>
 
           <div class="panel-body">
-            <form role="form">
+            <!-- <form role="form" name="myForm" onsubmit="return validateForm()" action="/action_page.php" method="post"> -->
+            <form role="form" id="myForm">
               <h3><strong>About You</strong></h3>
               <div class="form-group">
                 <label for="your-name">Name (Required)</label>
-                <input type="text" class="form-control" id="your-name" required>
+                <input type="text" class="form-control" id="your-name" placeholder="John Doe" required />
               </div>
 
               <div class="form-group">
                 <label for="your-pic">Link to Photo Image (Required)</label>
-                <input type="text" class="form-control" id="your-pic" required>
+                <input type="text" class="form-control" id="your-pic" placeholder="URL" required/>
               </div>
               <hr>
-
+  
           <div>
             <h3><strong>Question 1</strong></h3>
             <p style="font-size:20px;">I enjoy engaging in outdoor activities</p> 
@@ -218,7 +219,7 @@
           </div>
 
               <button type="submit" class="btn btn-primary submit">Submit</button>
-            </form>
+          </form>
           </div>
       </div>
   </div>
@@ -259,16 +260,21 @@
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
 
+
+
     // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
     // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js filed
 
     $(".submit").on("click", function(event) {
       event.preventDefault();
 
+      if (!validateForm())
+        return;
+
       let name = $("#your-name").val().trim();
-      let photo = $("#your-photo");
+      let photo = $("#your-pic").val().trim();
       let source = [];
 
       source.push(parseInt($("#question1").val().trim()));
@@ -294,12 +300,36 @@
       // Find me a new best friend
       findMeAfriend(myData);
 
-      // After finding a friend, add our data to the friends DB
-      addMe(myData)
 
     });
   
+function validateForm() 
+{
 
+   // var x = document.forms["myForm"]["your-name"].value;
+    var x = $("#your-name").val();
+    var y = $("#your-pic").val();
+
+    console.log("Validate form name = ", x, "URL = ", y);
+    console.log("Questions", ($("#question1").val()));
+
+    if (x == "" || y == "")
+    {
+        alert("Name and Photo URL must be filled out");
+        return false;
+    }
+
+    if ((($("#question1").val()) == null) || (($("#question2").val()) == null) || (($("#question3").val()) == null) ||
+    (($("#question4").val()) == null) || (($("#question5").val()) == null) || (($("#question6").val()) == null) ||
+    (($("#question7").val()) == null) || (($("#question8").val()) == null) || (($("#question9").val()) == null) ||
+    (($("#question10").val()) == null))
+    {
+        alert("All questions must be answered");
+        return false;
+    }
+
+    return true;
+}
 
 function findMeAfriend(myData) 
 {
@@ -310,12 +340,12 @@ console.log("FindMeAFriend", myData);
 
 
 // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-$.ajax({ url: currentURL + "/api/survey", method: "GET" })
+$.ajax({ url: currentURL + "/api/friends", method: "GET" })
   .then(function(friendData) {
 
   // Here we are logging the URL so we have access to it for troubleshooting
     console.log("------------------------------------");
-    console.log("URL: " + currentURL + "/api/survey");
+    console.log("URL: " + currentURL + "/api/friends");
     console.log("------------------------------------");
 
     // Here we then log the friendData to console, where it will show up as an object.
@@ -359,14 +389,21 @@ $.ajax({ url: currentURL + "/api/survey", method: "GET" })
     friendImage.addClass("center");
     $("#friend-img").html(friendImage)
     $('#myModal').modal('show')
+
+    // After finding a friend, add our data to the friends DB
+    addMe(myData);
+
+    // Reset the form
+    var form = document.getElementById("myForm");
+    form.reset();
   });
 }
 
 // Add me to the friend database
 function addMe(newFriend)
 {
-
-  $.post("/api/survey", newFriend,
+  console.log("addMe: adding ", newFriend);
+  $.post("/api/friends", newFriend,
     function(data) {
 
       // Tell user they have been entered into the database
